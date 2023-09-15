@@ -23,7 +23,7 @@ export default function Navbar() {
         </Link>
       </div>
       <button className="px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300">
-        Preview
+        Previews
       </button>
     </div>
   );
