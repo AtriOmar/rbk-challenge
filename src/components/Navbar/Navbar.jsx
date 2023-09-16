@@ -8,7 +8,10 @@ export default function Navbar() {
   return (
     <div className="pt-[16px]">
       <div className="flex items-center justify-between h-[60px] px-4 mx-4 mb-4 rounded-2xl bg-white ">
-        <h2 className="font-bold text-lg text-[#222]">devlinks</h2>
+        <div className="flex items-center gap-1">
+          <img src="/icon.svg" alt="" className="h-5" />
+          <h2 className="font-bold text-lg text-[#222]">devlinks</h2>
+        </div>
         <div className="flex gap-4">
           <NavLink
             to="/"

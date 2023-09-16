@@ -106,7 +106,7 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
             onClick={() => {
               addLink();
             }}
-            className="block ml-auto mt-6  px-5 py-2 bg-[#633bfe] text-white rounded-md"
+            className="block ml-auto mt-6  px-5 py-2 bg-[#633bfe] hover:bg-indigo-700 duration-300 text-white rounded-md"
           >
             Add
           </button>

@@ -77,7 +77,7 @@ export default function ManageLinks() {
             Cancel
           </button>
         )}
-        <button onClick={save} className="px-5 py-2 bg-[#633bfe] text-white rounded-md">
+        <button onClick={save} className="px-5 py-2 bg-[#633bfe] hover:bg-indigo-700 duration-300 text-white rounded-md">
           save
         </button>
       </div>
