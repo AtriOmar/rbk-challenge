@@ -3,8 +3,8 @@ import { useAppContext } from "../../contexts/AppProvider";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { PhotoIcon } from "@heroicons/react/24/outline";
 
-export default function AddPicture({ userInput, setUserInput }) {
-  const { user } = useAppContext();
+export default function AddPicture() {
+  const { user, userInput, setUserInput } = useAppContext();
 
   console.log(userInput);
 

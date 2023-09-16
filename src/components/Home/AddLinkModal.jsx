@@ -10,19 +10,40 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
   const inputRef = useRef(null);
   const [input, setInput] = useState({
     platform: "github",
-    link: "https://www.github.com/John-Doe",
+    link: "",
   });
   const { setLinks } = useAppContext();
 
-  function resetInput() {
-    setInput({
-      platform: "github",
-      link: "https://www.github.com/John-Doe",
+  const [errors, setErrors] = useState({
+    link: "",
+  });
+
+  function resetErrors() {
+    setErrors({
+      link: "",
     });
   }
 
   function addLink() {
+    resetErrors();
+    let error = false;
+    if (input.link?.length < 1) {
+      setErrors((prev) => ({ ...prev, link: "Link field can not be empty" }));
+      error = true;
+    }
+
+    if (error) return;
+
     setLinks((prev) => [...prev, { id: uuidv4().toString(), platform: input.platform, link: input.link }]);
+    resetInput();
+    hide();
+  }
+
+  function resetInput() {
+    setInput({
+      platform: "github",
+      link: "",
+    });
   }
 
   return (
@@ -41,7 +62,7 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
               <FontAwesomeIcon icon={faXmark} size="lg" color="#6249c7" />
             </button>
           </div>
-          <p className="mt-6 text-xs text-slate-500">Platform</p>
+          <p className="mt-6 text-xs text-slate-600">Platform</p>
           <div className="relative">
             <select
               name=""
@@ -55,7 +76,7 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
               <option value="github">Github</option>
               <option value="facebook">Facebook</option>
               <option value="youtube">Youtube</option>
-              <option value="instagram">Instagarm</option>
+              <option value="instagram">Instagram</option>
               <option value="linkedin">LinkedIn</option>
               <option value="twitter">Twitter</option>
             </select>
@@ -64,10 +85,11 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
             </div>
           </div>
           <p className="mt-4 text-xs text-slate-500">Link</p>
-          <div className="relative text-slate-500">
+          <div className="relative flex items-center text-slate-500 border border-slate-300 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-4 py-2 ">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
               <FontAwesomeIcon icon={faLink} />
             </div>
+            <div className="text-slate-600">{PLATFORMS[input.platform]?.baseUrl}</div>
             <input
               type="text"
               value={input.link}
@@ -75,15 +97,14 @@ export default function AddLinkModal({ show, hide = () => {}, afterLeave = () =>
                 setInput((prev) => ({ ...prev, link: e.target.value }));
               }}
               id="input-group-1"
-              className="border border-slate-300 text-slate-700 rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 pr-4 py-2 "
-              placeholder="https://www.github.com/John-Doe"
+              className="text-black focus:ring-blue-500 focus:border-blue-500 block w-full pl-1 pr-4 py-2 "
+              placeholder="John-Doe"
             />
           </div>
+          {errors.link ? <p className="mt-1 text-xs text-red-600">* {errors.link}</p> : ""}
           <button
             onClick={() => {
               addLink();
-              resetInput();
-              hide();
             }}
             className="block ml-auto mt-6  px-5 py-2 bg-[#633bfe] text-white rounded-md"
           >

@@ -8,7 +8,7 @@ import { PLATFORMS } from "../../lib/PLATFORMS";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 export default function Phone() {
-  const { user, links } = useAppContext();
+  const { user, userInput, links, linksInput } = useAppContext();
 
   return (
     <div className="md:h-0 md:min-h-full px-4 py-4 rounded-2xl bg-white">
@@ -16,8 +16,8 @@ export default function Phone() {
         <img src={phonePic} alt="" className="h-full w-full " />
         <div className="absolute inset-0 p-6 pt-12">
           <div className="relative flex items-center justify-center w-[150px] aspect-square mx-auto rounded-[50%] border-4 border-[#623eef] overflow-hidden">
-            {user.picture ? (
-              <img src={user.picture} alt="" className="w-full h-full object-cover rounded-md" />
+            {userInput.picture ? (
+              <img src={userInput.picture} alt="" className="w-full h-full object-cover rounded-md" />
             ) : (
               <>
                 <UserCircleIcon className="text-slate-500 w-full " />
@@ -27,12 +27,12 @@ export default function Phone() {
           {/* <i className="block w-fit mx-auto">
             <UserCircleIcon className="text-slate-500 w-2/3 mx-auto" />
           </i> */}
-          <p className="mt-3 font-medium text-lg text-center capitalize">{user.name}</p>
-          <p className="mt-1 text-slate-500 text-sm text-center ">{user.email}</p>
+          <p className="mt-3 font-medium text-lg text-center capitalize">{userInput.firstName + " " + userInput.lastName}</p>
+          <p className="mt-1 text-slate-500 text-sm text-center ">{userInput.email}</p>
           <ul className="mt-5">
-            {links.slice(0, 5).map((link) => (
+            {linksInput.slice(0, 5).map((link) => (
               <li key={link.id} className="my-2 py-2.5 px-3 rounded-md" style={{ background: PLATFORMS[link.platform].color }}>
-                <a href={link.link} target="_blank" className="grid grid-cols-[20px_1fr_20px] items-center gap-2">
+                <a href={PLATFORMS[link.platform].baseUrl + link.link} target="_blank" className="grid grid-cols-[20px_1fr_20px] items-center gap-2">
                   <FontAwesomeIcon icon={PLATFORMS[link.platform].icon} color="white" className="mx-auto" />
                   <p className="text-xs capitalize text-white">{link.platform}</p>
                   <FontAwesomeIcon icon={faArrowRight} color="white" />

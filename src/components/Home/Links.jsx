@@ -4,17 +4,17 @@ import LinkCard from "./LinkCard";
 import { useAppContext } from "../../contexts/AppProvider";
 
 const SimpleScroller = () => {
-  const { links, setLinks } = useAppContext();
+  const { links, setLinks, linksInput, setLinksInput } = useAppContext();
 
   const handleDrop = (e) => {
-    setLinks(applyDrag(links, e));
+    setLinksInput(applyDrag(linksInput, e));
   };
 
   return (
     <div>
       <div className="mt-2 simple-page-scroller">
         <Container onDrop={handleDrop}>
-          {links.map((p, index) => (
+          {linksInput.map((p, index) => (
             <Draggable key={p.id}>
               <div className="draggable-item my-2">{<LinkCard link={p} order={index} />}</div>
             </Draggable>

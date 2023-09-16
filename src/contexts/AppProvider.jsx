@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import useLocalStorage from "../lib/useLocalStorage";
 
 const AppContext = React.createContext();
@@ -12,45 +12,26 @@ function AppProvider({ children }) {
     email: "johndoe@gmail.com",
   });
 
+  const [userInput, setUserInput] = useState({ ...user });
+
   const [links, setLinks] = useLocalStorage("links", [
-    {
-      id: 0,
-      platform: "github",
-      link: "https://www.github.com/John-doe",
-    },
-    {
-      id: 1,
-      platform: "youtube",
-      link: "https://www.youtube.com/John-doe",
-    },
-    {
-      id: 2,
-      platform: "facebook",
-      link: "https://www.facebook.com/John-doe",
-    },
-    {
-      id: 3,
-      platform: "facebook",
-      link: "https://www.facebook.com/John-doe",
-    },
-    {
-      id: 4,
-      platform: "facebook",
-      link: "https://www.facebook.com/John-doe",
-    },
-    {
-      id: 5,
-      platform: "facebook",
-      link: "https://www.facebook.com/John-doe",
-    },
-    {
-      id: 6,
-      platform: "facebook",
-      link: "https://www.facebook.com/John-doe",
-    },
+    { id: 0, platform: "facebook", link: "John-Doe" },
+    { id: 1, platform: "youtube", link: "John-Doe" },
+    { id: 2, platform: "github", link: "John-doe" },
+    { id: 3, platform: "instagram", link: "John-Doe" },
+    { id: 4, platform: "linkedin", link: "John-Doe" },
   ]);
 
-  return <AppContext.Provider value={{ user, setUser, links, setLinks }}>{children}</AppContext.Provider>;
+  const [linksInput, setLinksInput] = useState(JSON.parse(JSON.stringify(links)));
+
+  useEffect(() => {
+    setUserInput({ ...user });
+  }, [user]);
+
+  useEffect(() => {
+    setLinksInput(JSON.parse(JSON.stringify(links)));
+  }, [links]);
+  return <AppContext.Provider value={{ user, setUser, userInput, setUserInput, links, setLinks, linksInput, setLinksInput }}>{children}</AppContext.Provider>;
 }
 
 export default AppProvider;
