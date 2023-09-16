@@ -52,6 +52,7 @@ function MobileNavbar() {
           <ul className="divide-y mt-5">
             <li>
               <NavLink
+                onClick={() => setMobileNavbarOpen(false)}
                 to="/"
                 className={({ isActive }) =>
                   `${
@@ -65,6 +66,7 @@ function MobileNavbar() {
                 <span className="font-medium">Links</span>
               </NavLink>
               <NavLink
+                onClick={() => setMobileNavbarOpen(false)}
                 to="/profile"
                 className={({ isActive }) =>
                   `${
@@ -78,6 +80,7 @@ function MobileNavbar() {
                 <span className="font-medium">Profile Details</span>
               </NavLink>
               <Link
+                onClick={() => setMobileNavbarOpen(false)}
                 to={"/preview"}
                 className="block px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300"
               >
