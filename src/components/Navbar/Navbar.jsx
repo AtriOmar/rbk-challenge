@@ -2,29 +2,41 @@ import { faCircleUser } from "@fortawesome/free-regular-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <div className="flex items-center justify-between w-full h-[60px] px-4 rounded-2xl bg-white ">
-      <h1 className="text-lg font-bold font-[system-ui]">devlinks</h1>
-      <div className="flex gap-4">
-        <Link className="flex gap-2 px-4 py-1.5 rounded-md bg-[#efecff]">
-          <i className="">
-            <FontAwesomeIcon icon={faLink} color="#6249c7" />
-          </i>
-          <span className="font-medium text-[#6249c7]">Links</span>
-        </Link>
-        <Link className="flex gap-2 px-4 py-1.5 rounded-md bg-[#efecff]">
-          <i className="">
-            <FontAwesomeIcon icon={faCircleUser} color="#6249c7" />
-          </i>
-          <span className="font-medium text-[#6249c7]">Profile Details</span>
-        </Link>
+    <div className="pt-[16px]">
+      <div className="flex items-center justify-between h-[60px] px-4 mx-4 mb-4 rounded-2xl bg-white ">
+        <h2 className="font-bold text-lg text-[#222]">devlinks</h2>
+        <div className="flex gap-4">
+          <NavLink
+            to="/"
+            className={({ isActive }) =>
+              `${isActive ? "bg-[#efecff] text-[#6249c7]" : ""} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
+            }
+          >
+            <i className="">
+              <FontAwesomeIcon icon={faLink} />
+            </i>
+            <span className="font-medium">Links</span>
+          </NavLink>
+          <NavLink
+            to="/profile"
+            className={({ isActive }) =>
+              `${isActive ? "bg-[#efecff] text-[#6249c7]" : ""} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
+            }
+          >
+            <i className="">
+              <FontAwesomeIcon icon={faCircleUser} />
+            </i>
+            <span className="font-medium">Profile Details</span>
+          </NavLink>
+        </div>
+        <button className="px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300">
+          Preview
+        </button>
       </div>
-      <button className="px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300">
-        Preview
-      </button>
     </div>
   );
 }
