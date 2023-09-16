@@ -16,6 +16,9 @@ export default function ManageLinks() {
       <div className="overflow-y-scroll grow ">
         <Links />
       </div>
+      <div className="flex justify-end  mt-2 pt-4 border-t border-slate-400">
+        <button className="px-5 py-2 bg-[#633bfe] text-white rounded-md">save</button>
+      </div>
     </div>
   );
 }

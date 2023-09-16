@@ -5,13 +5,24 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { PLATFORMS } from "../../lib/PLATFORMS";
+import { useAppContext } from "../../contexts/AppProvider";
 
 export default function LinkCard({ link, order = 0 }) {
+  const { setLinks } = useAppContext();
+
   return (
     <div className="cursor-move p-4 rounded-lg bg-[#f6f6f6]">
-      <div className="flex gap-1 font-medium text-slate-500 text-sm ">
+      <div className="flex items-center gap-1 font-medium text-slate-500 text-sm ">
         <Bars2Icon className="w-4" />
         <span>Link #{order + 1}</span>
+        <button
+          onClick={() => {
+            setLinks((prev) => prev.filter((l) => l.id !== link.id));
+          }}
+          className="ml-auto font-thin hover:text-slate-800"
+        >
+          Remove
+        </button>
       </div>
       <p className="mt-2 text-xs text-slate-500">Platform</p>
       <div className="relative">

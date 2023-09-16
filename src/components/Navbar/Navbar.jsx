@@ -13,7 +13,7 @@ export default function Navbar() {
           <NavLink
             to="/"
             className={({ isActive }) =>
-              `${isActive ? "bg-[#efecff] text-[#6249c7]" : ""} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
+              `${isActive ? "bg-[#efecff] text-[#6249c7]" : "text-slate-500"} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
             }
           >
             <i className="">
@@ -24,7 +24,7 @@ export default function Navbar() {
           <NavLink
             to="/profile"
             className={({ isActive }) =>
-              `${isActive ? "bg-[#efecff] text-[#6249c7]" : ""} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
+              `${isActive ? "bg-[#efecff] text-[#6249c7]" : "text-slate-500"} hover:ring-1 ring-[#6249c7] flex gap-2 px-4 py-1.5 rounded-md duration-300`
             }
           >
             <i className="">
