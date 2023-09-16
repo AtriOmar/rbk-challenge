@@ -6,6 +6,7 @@ import Layout from "./layouts/Layout";
 import Home from "./components/Home/Home";
 import UserProvider from "./contexts/AppProvider";
 import Profile from "./components/Profile/Profile";
+import Preview from "./components/Preview/Preview";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "/preview",
+    element: <Preview />,
   },
 ]);
 

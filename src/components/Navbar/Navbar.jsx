@@ -33,9 +33,12 @@ export default function Navbar() {
             <span className="font-medium">Profile Details</span>
           </NavLink>
         </div>
-        <button className="px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300">
+        <Link
+          to={"/preview"}
+          className="px-4 py-1.5 border border-[#6249c7] rounded-md font-medium text-[#6249c7] hover:bg-[#6249c7] hover:text-white duration-300"
+        >
           Preview
-        </button>
+        </Link>
       </div>
     </div>
   );

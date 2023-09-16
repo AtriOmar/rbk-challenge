@@ -18,6 +18,11 @@ export default {
       maxWidth: {
         w1300: "1300px",
       },
+      boxShadow: {
+        card1: "0px 0px 4px 0px rgba(67, 71, 85, 0.27), 0px 4px 16px 0px rgba(90, 125, 188, 0.05);",
+        card2: "0px 0px 6px 2px rgba(67, 71, 85, 0.27),0px 4px 16px 2px rgba(90, 125, 188, 0.02);",
+        card3: "rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;",
+      },
     },
   },
   plugins: [],
