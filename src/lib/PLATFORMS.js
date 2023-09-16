@@ -1,4 +1,4 @@
-import { faFacebook, faFacebookF, faGithub, faInstagram, faLinkedin, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faFacebookF, faGithub, faInstagram, faLinkedin, faTwitter, faYoutube } from "@fortawesome/free-brands-svg-icons";
 
 export const PLATFORMS = {
   facebook: {
@@ -20,5 +20,9 @@ export const PLATFORMS = {
   instagram: {
     icon: faInstagram,
     color: "purple",
+  },
+  twitter: {
+    icon: faTwitter,
+    color: "cyan",
   },
 };

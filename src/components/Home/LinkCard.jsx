@@ -36,8 +36,8 @@ export default function LinkCard({ link, order = 0 }) {
           <option value="github">Github</option>
           <option value="facebook">Facebook</option>
           <option value="youtube">Youtube</option>
-          <option value="instagarm">Instagarm</option>
-          <option value="linkedIn">LinkedIn</option>
+          <option value="instagram">Instagarm</option>
+          <option value="linkedin">LinkedIn</option>
           <option value="twitter">Twitter</option>
         </select>
         <div className="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">

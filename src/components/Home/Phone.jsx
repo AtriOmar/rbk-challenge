@@ -10,8 +10,6 @@ import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 export default function Phone() {
   const { user, links } = useAppContext();
 
-  console.log(links);
-
   return (
     <div className="md:h-0 md:min-h-full px-4 py-4 rounded-2xl bg-white">
       <div className="relative max-h-full max-w-[400px] aspect-[73/150] mx-auto ">
