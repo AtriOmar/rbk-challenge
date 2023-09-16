@@ -4,18 +4,28 @@ import React, { useState } from "react";
 import useLocalStorage from "../../lib/useLocalStorage";
 import { useAppContext } from "../../contexts/AppProvider";
 import AddPicture from "./AddPicture";
+import deepEqual from "deep-equal";
 
 export default function Profile() {
   const [show, setShow] = useState(false);
   const { user, setUser } = useAppContext();
+  const [userInput, setUserInput] = useState(user);
+
+  function save() {
+    setUser(userInput);
+  }
+
+  function cancel() {
+    setUserInput(user);
+  }
 
   return (
     <div className="h-full flex flex-col px-8 py-8 rounded-2xl bg-white">
       <h2 className="font-bold text-2xl text-[#222]">Profile Details</h2>
       <p className="mt-3 text-slate-500 text-sm">Add your details to create a personal touch to your profile.</p>
-      <AddPicture />
+      <AddPicture userInput={userInput} setUserInput={setUserInput} />
       <div className="p-4 space-y-3 rounded-lg bg-[#f6f6f6]">
-        <div className="grid grid-cols-[200px_1fr] items-center">
+        <div className="grid sm:grid-cols-[200px_1fr] items-center">
           <p className="mt-2 text-sm text-slate-500">First name*</p>
           <input
             type="text"
@@ -27,7 +37,7 @@ export default function Profile() {
             placeholder="John"
           />
         </div>
-        <div className="grid grid-cols-[200px_1fr] items-center">
+        <div className="grid sm:grid-cols-[200px_1fr] items-center">
           <p className="mt-2 text-sm text-slate-500">Last name*</p>
           <input
             type="text"
@@ -39,7 +49,7 @@ export default function Profile() {
             placeholder="John"
           />
         </div>
-        <div className="grid grid-cols-[200px_1fr] items-center">
+        <div className="grid sm:grid-cols-[200px_1fr] items-center">
           <p className="mt-2 text-sm text-slate-500">Email</p>
           <input
             type="email"
@@ -53,8 +63,17 @@ export default function Profile() {
         </div>
       </div>
       <div className="grow"></div>
-      <div className="flex justify-end  mt-2 pt-4 border-t border-slate-400">
-        <button className="px-5 py-2 bg-[#633bfe] text-white rounded-md">save</button>
+      <div className="flex justify-end gap-2 mt-2 pt-4 border-t border-slate-400">
+        {deepEqual(user, userInput) ? (
+          ""
+        ) : (
+          <button onClick={cancel} className="px-5 py-2 bg-red-500 hover:bg-red-700 text-white rounded-md duration-200">
+            Cancel
+          </button>
+        )}
+        <button onClick={save} className="px-5 py-2 bg-[#633bfe] text-white rounded-md">
+          save
+        </button>
       </div>
     </div>
   );

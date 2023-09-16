@@ -5,6 +5,7 @@ const AppContext = React.createContext();
 
 function AppProvider({ children }) {
   const [user, setUser] = useLocalStorage("user", {
+    picture: null,
     name: "John Doe",
     firstName: "John",
     lastName: "Doe",

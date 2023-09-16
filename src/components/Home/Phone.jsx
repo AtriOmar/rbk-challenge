@@ -12,12 +12,21 @@ export default function Phone() {
 
   return (
     <div className="md:h-0 md:min-h-full px-4 py-4 rounded-2xl bg-white">
-      <div className="relative max-h-full max-w-[400px] aspect-[73/150] mx-auto ">
+      <div className="relative max-h-[600px] md:max-h-full max-w-[400px] aspect-[73/150] mx-auto ">
         <img src={phonePic} alt="" className="h-full w-full " />
         <div className="absolute inset-0 p-6 pt-12">
-          <i className="block w-fit mx-auto">
+          <div className="relative flex items-center justify-center w-[150px] aspect-square mx-auto rounded-[50%] border-4 border-[#623eef] overflow-hidden">
+            {user.picture ? (
+              <img src={user.picture} alt="" className="w-full h-full object-cover rounded-md" />
+            ) : (
+              <>
+                <UserCircleIcon className="text-slate-500 w-full " />
+              </>
+            )}
+          </div>
+          {/* <i className="block w-fit mx-auto">
             <UserCircleIcon className="text-slate-500 w-2/3 mx-auto" />
-          </i>
+          </i> */}
           <p className="mt-3 font-medium text-lg text-center capitalize">{user.name}</p>
           <p className="mt-1 text-slate-500 text-sm text-center ">{user.email}</p>
           <ul className="mt-5">
