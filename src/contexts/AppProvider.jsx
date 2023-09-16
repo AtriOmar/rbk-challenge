@@ -4,6 +4,8 @@ import useLocalStorage from "../lib/useLocalStorage";
 const AppContext = React.createContext();
 
 function AppProvider({ children }) {
+  const [mobileNavbarOpen, setMobileNavbarOpen] = useState(false);
+
   const [user, setUser] = useLocalStorage("user", {
     picture: null,
     name: "John Doe",
@@ -11,6 +13,14 @@ function AppProvider({ children }) {
     lastName: "Doe",
     email: "johndoe@gmail.com",
   });
+
+  useEffect(() => {
+    if (mobileNavbarOpen) {
+      document.querySelector("body").style.overflow = "hidden";
+    } else {
+      document.querySelector("body").style.overflow = "visible";
+    }
+  }, [mobileNavbarOpen]);
 
   const [userInput, setUserInput] = useState({ ...user });
 
@@ -31,7 +41,11 @@ function AppProvider({ children }) {
   useEffect(() => {
     setLinksInput(JSON.parse(JSON.stringify(links)));
   }, [links]);
-  return <AppContext.Provider value={{ user, setUser, userInput, setUserInput, links, setLinks, linksInput, setLinksInput }}>{children}</AppContext.Provider>;
+  return (
+    <AppContext.Provider value={{ mobileNavbarOpen, setMobileNavbarOpen, user, setUser, userInput, setUserInput, links, setLinks, linksInput, setLinksInput }}>
+      {children}
+    </AppContext.Provider>
+  );
 }
 
 export default AppProvider;
