@@ -11,7 +11,7 @@ A Front End coding challenge organized by [RBK](https://www.rbktunisia.com), it 
 - **Participants:** Nearly 100
 - **Completed:** Close to 30 participants successfully completed the challenge.
 
-## Technology
+## Technologies
 
 I've chosen ReactJS because I am very familiar with and comfortable working with it, paired with Tailwind CSS as a styling framework to facilitate styling.
 
