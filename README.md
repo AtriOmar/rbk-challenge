@@ -13,7 +13,7 @@ A Front End coding challenge organized by [RBK](https://www.rbktunisia.com), it 
 
 ## Technology
 
-I've chosen ReactJS as I am very familiar with and very comfortable working with.
+I've chosen ReactJS because I am very familiar with and comfortable working with it, paired with Tailwind CSS as a styling framework to facilitate styling.
 
 ## Project Highlights
 
