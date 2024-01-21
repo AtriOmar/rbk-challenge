@@ -2,14 +2,14 @@
 
 ## Overview
 
-This project is my submission for the RBK Front End coding challenge. The goal was to turn a given design into a functional website for sharing social links. I chose ReactJS for its familiarity.
+A Front End coding challenge organized by RBK, it consists of turning a given design into a functional website using any preferred technology.
 
 ## Challenge Details
 
 - **Objective:** Transform the design into a social links sharing website.
 - **Duration:** 24 hours
 - **Participants:** Nearly 100
-- **Completed:** Around 30
+- **Completed:** Close to 30 participants successfully completed the challenge.
 
 ## Technology
 
@@ -17,9 +17,10 @@ I've chosen ReactJS as I am very familiar with and very comfortable working with
 
 ## Project Highlights
 
-- **Responsive Design:** Ensures a great user experience across devices.
-- **Real-Time Data Handling:** Data is stored in local storage for persistence. Updates happen in real time.
-- **Drag and Drop Animation:** Smooth animation for a better user experience.
+- **Responsive Design:** A great user experience across devices (The main focus was on the large screen version. Even though it's a responsive UI, the user experience is not 100% great on mobile devices).
+- **Persistance:** Data is stored immediately in local storage so that you don't lose your data after refreshing.
+- **Real-Time Data Handling:** Data is updated in real time, you see the change while you are changing.
+- **Drag and Drop Animation:** Smooth animation for a better user experience while re-ordering and modifying the links.
 
 ## Ranking
 
