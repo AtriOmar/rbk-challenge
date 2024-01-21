@@ -2,7 +2,7 @@
 
 ## Overview
 
-A Front End coding challenge organized by RBK, it consists of turning a given design into a functional website using any preferred technology.
+A Front End coding challenge organized by [RBK](https://www.rbktunisia.com), it consists of turning a given design into a functional website using any preferred technology.
 
 ## Challenge Details
 
